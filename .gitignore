@@ -1,3 +1,4 @@
 nosimd_csv
 simd_csv
 *.csv
+*.un~
