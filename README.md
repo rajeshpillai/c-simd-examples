@@ -2,7 +2,11 @@
 ./make_big_csv.sh 1000000
 
 # Compile SIMD
-gcc -o3 -mavx2 simd_csv.c -o simd_csv
+##  Compile with AVX2 enabled (best performance on modern Intel/AMD)
+gcc -O3 -std=c11 -mavx2 simd_csv.c -o simd_csv
+
+# Or portable build (still works; runtime will fall back if no AVX2)
+gcc -O3 -std=c11 simd_csv.c -o simd_csvgcc -o3 -mavx2 simd_csv.c -o simd_csv
 
 ## Run the code
 ./simd_csv bigfile.csv
